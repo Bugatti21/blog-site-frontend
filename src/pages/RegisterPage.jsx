@@ -18,7 +18,7 @@ const RegisterPage = () => {
   async function register(ev) {
     ev.preventDefault();
     try {
-      const response = await fetch('https://seun-u541.onrender.com', {
+      const response = await fetch(process.env.BACKEND_URL, {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
