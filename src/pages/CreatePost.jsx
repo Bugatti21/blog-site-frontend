@@ -40,7 +40,7 @@ const CreatePost = () => {
         data.set('content', content);
         data.set('file', files[0]);
         ev.preventDefault();
-      const response = await fetch('http://localhost:5000/post', {
+      const response = await fetch('https://seun-u541.onrender.com', {
             method: 'POST',
             body: data,
         });
