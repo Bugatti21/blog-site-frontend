@@ -81,7 +81,7 @@ app.post('/login', async (req, res) => {
     }
   });
 
-  app.get('/profile', (req,res) => {
+  app.get('/profile', (req, res) => {
     const {token} = req.cookies;
     jwt.verify(token, secret, {}, (err,info) =>{
         if (err) throw err;
@@ -89,7 +89,7 @@ app.post('/login', async (req, res) => {
     });
   });
 
-  app.post('/logout', (req,res) => {
+  app.post('/logout', (req, res) => {
     res.cookie('token', '').json('ok');
   });
 
@@ -99,7 +99,7 @@ app.post('/login', async (req, res) => {
     const parts = originalname.split('.');
     const ext = parts[parts.length - 1];
     const newPath = path+'.'+ext;
-    fs.renameSync(path, path+'.'+ext);
+    fs.renameSync(path, newPath);
 
     const {title,summary,content} = req.body;
     const postDoc = await Post.create({
@@ -112,7 +112,7 @@ app.post('/login', async (req, res) => {
     res.json(postDoc);
   })
 
-app.listen(3000);
+app.listen(5000);
 //mHlDoDglcURK1uvP
 //   mongodb+srv://blog:mHlDoDglcURK1uvP@cluster0.ampyuu7.mongodb.net/?retryWrites=true&w=majority
 
